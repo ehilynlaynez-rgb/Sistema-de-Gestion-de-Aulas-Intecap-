@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Intecap Aulas · Acceso</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <style>
+    .glass{backdrop-filter:blur(12px);background:rgba(255,255,255,.06);border:1px solid rgba(100,116,139,.25)}
+    .title-grad{background:linear-gradient(90deg,#06b6d4,#22d3ee,#38bdf8);-webkit-background-clip:text;color:transparent}
+  </style>
+
+        <style>
+        /* intecap theme */
+        :root{ --intecap:#004C97; --ink:#0e1a2b; --card:#121e31; --muted:#7fa8d8; }
+        .btn-primary{ background:var(--intecap); border:none; }
+        .btn-primary:hover{ filter:brightness(1.05); }
+        .card{ background:linear-gradient(180deg, rgba(18,30,49,.95), rgba(18,30,49,.85)); border:1px solid rgba(255,255,255,0.06); }
+        h1 .accent{ color:var(--intecap); }
+        a { color: var(--muted); }
+        </style>
+        
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="min-h-screen bg-gradient-to-br from-slate-900 via-slate-950 to-black text-white">
+  <div class="min-h-screen flex items-center justify-center p-6">
+    <div class="w-full max-w-6xl grid md:grid-cols-2 gap-8">
+      <div class="glass rounded-3xl p-8 md:p-10 shadow-2xl">
+        <h1 class="text-4xl font-extrabold">Intecap <span class="title-grad">Aulas</span></h1>
+        <p class="text-slate-400 text-sm">Sede: Intecap – Quetzaltenango</p>
+        <div class="mt-8 space-y-4">
+          <input id="email" type="email" placeholder="Correo" class="w-full glass rounded-2xl px-4 py-3 outline-none text-white placeholder-slate-400" />
+          <input id="password" type="password" placeholder="Contraseña" class="w-full glass rounded-2xl px-4 py-3 outline-none text-white placeholder-slate-400" />
+          <button id="loginBtn" class="w-full rounded-2xl py-3 bg-blue-600 hover:bg-blue-500 transition shadow-lg">Entrar</button>
+        </div>
+        <div class="mt-6 text-sm text-slate-400">¿No tienes cuenta? <a href="#" id="scrollReg" class="text-cyan-400 hover:underline">Regístrate</a></div>
+      </div>
+
+      <div class="glass rounded-3xl p-8 md:p-10 shadow-2xl" id="regBox">
+        <h2 class="text-xl font-bold">Registro</h2>
+        <div class="mt-6 space-y-4">
+          <input id="r_name" placeholder="Nombre" class="w-full glass rounded-2xl px-4 py-3 outline-none text-white placeholder-slate-400" />
+          <input id="r_email" type="email" placeholder="Correo" class="w-full glass rounded-2xl px-4 py-3 outline-none text-white placeholder-slate-400" />
+          <input id="r_password" type="password" placeholder="Contraseña" class="w-full glass rounded-2xl px-4 py-3 outline-none text-white placeholder-slate-400" />
+          <select id="r_role" class="w-full glass rounded-2xl px-4 py-3 outline-none text-white bg-slate-900">
+            <option value="instructor">Instructor</option>
+            <option value="tecnico">Técnico</option>
+            <option value="admin">Admin</option>
+          </select>
+          <button id="registerBtn" class="w-full rounded-2xl py-3 bg-cyan-600 hover:bg-cyan-500 transition shadow-lg">Crear cuenta</button>
+        </div>
+        <p class="text-xs text-slate-400 mt-4">Admin inicial: admin@intecap.gt / <span class="select-all">Admin123!</span></p>
+      </div>
+    </div>
+  </div>
+  <script src="./toast.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>

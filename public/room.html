@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Aula · Intecap</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="min-h-screen bg-slate-950 text-white">
+  <nav class="border-b border-slate-800 bg-slate-950/70 backdrop-blur sticky top-0 z-20">
+    <div class="max-w-7xl mx-auto p-4 flex items-center justify-between">
+      <div class="font-extrabold text-lg"><a href="/dashboard.html" class="text-cyan-400">Intecap</a> • Aulas</div>
+      <div class="flex items-center gap-4 text-sm">
+        <a href="/dashboard.html" class="hover:underline">Dashboard</a>
+        <a href="/room.html" class="hover:underline">Recursos</a>
+        <a id="adminLink" href="/admin.html" class="hover:underline hidden">Administración</a>
+        <a id="techLink" href="/room.html" class="hover:underline hidden">Reportes</a>
+        <span id="who" class="text-slate-400"></span>
+        <button id="logout" class="px-3 py-2 rounded-xl bg-slate-800 hover:bg-slate-700">Salir</button>
+      </div>
+    </div>
+  </nav>
+<div class="max-w-7xl mx-auto p-4">
+<h2 id="roomTitle" class="text-xl font-bold mb-4"></h2>
+<div id="recursosList" class="space-y-2"></div>
+</div>
+
+  <div class="max-w-7xl mx-auto p-6 space-y-6">
+    <div class="rounded-2xl p-5 bg-slate-900/60 border border-slate-800">
+      <h2 id="roomTitle" class="text-2xl font-bold">Aula</h2>
+      <div id="roomMeta" class="text-slate-300 mt-1"></div>
+      <div class="mt-4 flex gap-2 flex-wrap" id="roomActions"></div>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-6">
+      <section class="rounded-2xl p-5 bg-slate-900/60 border border-slate-800">
+        <h3 class="text-xl font-bold mb-3">Recursos del aula</h3>
+        <div id="resList" class="space-y-2"></div>
+      </section>
+      <section class="rounded-2xl p-5 bg-slate-900/60 border border-slate-800">
+        <h3 class="text-xl font-bold mb-3">Préstamo de recursos</h3>
+        <form id="loanForm" class="grid grid-cols-2 gap-3">
+          <select id="loanResource" class="rounded-lg bg-slate-800 border border-slate-700 px-3 py-2"></select>
+          <select id="loanFromRoom" class="rounded-lg bg-slate-800 border border-slate-700 px-3 py-2"></select>
+          <label class="col-span-2 text-sm text-slate-400">Se devolverá automáticamente al terminar tu reserva activa. Si no tienes reserva, elige fecha/hora:</label>
+          <input id="loanDue" type="datetime-local" class="rounded-lg bg-slate-800 border border-slate-700 px-3 py-2 col-span-2">
+          <button class="col-span-2 bg-cyan-700 rounded-xl px-4 py-2">Prestar a esta aula</button>
+        </form>
+        <div id="loanMsg" class="text-sm text-slate-300 mt-2"></div>
+      </section>
+    </div>
+
+    <section class="rounded-2xl p-5 bg-slate-900/60 border border-slate-800">
+      <h3 class="text-xl font-bold mb-3">Reportar recurso dañado</h3>
+      <form id="damageForm" class="grid md:grid-cols-2 gap-3" enctype="multipart/form-data">
+        <input id="room_id" type="hidden">
+        <select id="damageResource" class="rounded-lg bg-slate-800 border border-slate-700 px-3 py-2"></select>
+        <input id="description" placeholder="Descripción del daño" class="rounded-lg bg-slate-800 border border-slate-700 px-3 py-2 md:col-span-2">
+        <input id="image" type="file" accept="image/*" capture="environment" class="md:col-span-2">
+        <button class="md:col-span-2 bg-rose-700 rounded-xl px-4 py-2">Enviar reporte</button>
+      </form>
+      <div id="damageList" class="mt-4 space-y-2"></div>
+    </section>
+  </div>
+
+  <script src="./toast.js"></script>
+  <script src="./room.js"></script>
+</body>
+</html>

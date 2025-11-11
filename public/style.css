@@ -1,0 +1,47 @@
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0B1524 0%, #00142E 50%, #004C97 100%);
+  background-attachment: fixed;
+  font-family: 'Inter', sans-serif;
+  color: #ffffff;
+}
+
+.glass-card {
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 18px;
+  padding: 2rem;
+  box-shadow: rgba(0,0,0,0.4) 0px 8px 20px;
+}
+
+.btn-main {
+  background: #004C97;
+  border-radius: 10px;
+  padding: .65rem 1.4rem;
+  display: inline-block;
+  transition: .25s;
+}
+.btn-main:hover {
+  background: #6EB5FF;
+}
+
+.aula-card {
+  cursor: pointer;
+  padding: 1.2rem;
+  border-radius: 16px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.18);
+  backdrop-filter: blur(12px);
+  transition: .25s;
+}
+.aula-card:hover {
+  transform: scale(1.03);
+  box-shadow: rgba(0,0,0,0.5) 0px 6px 18px;
+}
+.aula-card h3 {
+  font-weight: 600;
+}
+.libre { color: #6EB5FF; }
+.ocupada { color: #ff8a8a; }
